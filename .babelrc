@@ -1,0 +1,30 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [ "since 2007" ],
+          "modules": false,
+          "node": "current",
+          "useBuiltins": true
+        }
+      }
+    ],
+
+    "react",
+    "stage-2"
+  ],
+
+  "plugins": [
+    "transform-object-rest-spread"
+  ],
+
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "awesomeTypescriptLoaderOptions": {
+    "forceIsolatedModules":             true,
+    "useBabel":                         true,
+    "useCache":                         true
+  },
+
+  "compilerOptions": {
+    "allowJs":                          false,
+    "downlevelIteration":               true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx":                              "react",
+    "lib": [
+      "esnext",
+      "es2017"
+    ],
+
+    "module":                           "commonjs",
+    "moduleResolution":                 "node",
+    "noEmitOnError":                    true,
+    "noFallthroughCasesInSwitch":       true,
+    "noUnusedLocals":                   true,
+    "noUnusedParameters":               true,
+    "noImplicitAny":                    true,
+    "noImplicitReturns":                true,
+    "strictNullChecks":                 true,
+    "preserveConstEnums":               true,
+    "removeComments":                   true,
+    "sourceMap":                        false,
+    "strict":                           true,
+    "target":                           "esnext"
+  },
+
+  "exclude": [
+    "node_modules"
+  ],
+
+  "include": [ "src/index.tsx" ]
+}
