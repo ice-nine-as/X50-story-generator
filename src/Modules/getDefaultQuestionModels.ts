@@ -29,8 +29,8 @@ export const getDefaultQuestionModels = (): Array<TQuestionModel> => {
     },
 
     {
-      text: 'What are three words that describe X?',
       multiple: 3,
+      text: 'What are three words that describe X?',
     },
 
     {

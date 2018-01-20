@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "shuffle-array": "^1.0.1"
   },
@@ -17,14 +18,13 @@
     "@types/react": "^16.0.31",
     "@types/react-dom": "^16.0.3",
     "@types/react-hot-loader": "^3.0.5",
+    "@types/react-redux": "^5.0.14",
     "@types/react-test-renderer": "^16.0.0",
     "@types/shuffle-array": "0.0.28",
     "@types/webpack": "^3.8.1",
     "@types/webpack-hot-middleware": "^2.16.2",
-    "autodll-webpack-plugin": "^0.3.8",
     "awesome-typescript-loader": "^3.4.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-universal-import": "^1.4.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -57,10 +57,12 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "build-dev-esnext":  "cross-env NODE_ENV='development' gulp clean && webpack --config webpack/esnext.dev.config.js",
-    "build-dev-es5":     "cross-env NODE_ENV='development' gulp clean && webpack --config webpack/es5.dev.config.js",
-    "build-prod-esnext": "cross-env NODE_ENV='production' gulp clean && webpack --config webpack/esnext.prod.config.js",
-    "build-prod-es5":    "cross-env NODE_ENV='production' gulp clean && webpack --config webpack/es5.prod.config.js",
+    "build-dev": "cross-env NODE_ENV='development' gulp clean-all    && webpack --config webpack/es5.dev.config.js && webpack --config webpack/esnext.dev.config.js",
+    "build-dev-esnext": "cross-env NODE_ENV='development' gulp clean-esnext && webpack --config webpack/esnext.dev.config.js",
+    "build-dev-es5": "cross-env NODE_ENV='development' gulp clean-es5    && webpack --config webpack/es5.dev.config.js",
+    "build-prod": "cross-env NODE_ENV='production'  gulp clean-all    && webpack --config webpack/es5.prod.config.js && webpack --config webpack/esnext.prod.config.js",
+    "build-prod-esnext": "cross-env NODE_ENV='production'  gulp clean-esnext && webpack --config webpack/esnext.prod.config.js",
+    "build-prod-es5": "cross-env NODE_ENV='production'  gulp clean-es5    && webpack --config webpack/es5.prod.config.js",
     "test": "jest"
   },
   "repository": {
@@ -86,7 +88,7 @@
     "transform": {
       "^.+\\.(css|less)$": "jest-css-modules",
       "^.+\\.jsx?$": "babel-jest",
-      "^.+\\.(ts|tsx)$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest"
     }
   }
 }

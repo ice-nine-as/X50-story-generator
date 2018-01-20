@@ -25,5 +25,8 @@ export {
 
 /* TypeAliases */
 export {
-  TStoryGeneratorProps,
-} from './TypeAliases/TStoryGeneratorProps';
+  TStoryGeneratorDispatchProps,
+} from './TypeAliases/TStoryGeneratorDispatchProps';
+export {
+  TStoryGeneratorOwnProps,
+} from './TypeAliases/TStoryGeneratorOwnProps';

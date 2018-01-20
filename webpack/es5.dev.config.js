@@ -1,4 +1,5 @@
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
+const HardSourcePlugin = require('hard-source-webpack-plugin');
 const { resolve, }     = require('path');
 const webpack          = require('webpack');
 
@@ -64,6 +65,7 @@ module.exports = {
   },
 
   plugins: [
+    new HardSourcePlugin(),
     new ExtractCssChunks(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
