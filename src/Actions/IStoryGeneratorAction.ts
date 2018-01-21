@@ -1,8 +1,11 @@
 import {
+  Action,
+} from 'redux';
+import {
   StoryGeneratorActionTypes,
 } from '../Enums/StoryGeneratorActionTypes';
 
-export interface IStoryGeneratorAction {
+export interface IStoryGeneratorAction extends Action {
   type:  StoryGeneratorActionTypes;
   value: any;
 }

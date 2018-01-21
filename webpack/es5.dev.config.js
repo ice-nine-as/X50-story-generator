@@ -67,7 +67,6 @@ module.exports = {
   plugins: [
     new HardSourcePlugin(),
     new ExtractCssChunks(),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
