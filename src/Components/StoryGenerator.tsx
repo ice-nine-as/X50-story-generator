@@ -22,23 +22,14 @@ import {
   Dispatch,
 } from 'redux';
 import {
-  SetAnswerablePercentageAction
-} from '../Actions/SetAnswerablePercentageAction';
-import {
-  SetCensoredPercentageAction,
-} from '../Actions/SetCensoredPercentageAction';
+  SetAnswerTextAction,
+} from '../Actions/SetAnswerTextAction';
 import {
   SetMaxAnswerLengthAction,
 } from '../Actions/SetMaxAnswerLengthAction';
 import {
-  SetPreAnsweredPercentageAction,
-} from '../Actions/SetPreAnsweredPercentageAction';
-import {
   SetQuestionsAction,
 } from '../Actions/SetQuestionsAction';
-import {
-  SetShuffleAction,
-} from '../Actions/SetShuffleAction';
 import {
   SetStateAction,
 } from '../Actions/SetStateAction';
@@ -63,29 +54,32 @@ import * as React from 'react';
 // @ts-ignore
 import styles from '../Styles/Components/StoryGenerator.less';
 
-const shuffleArray = require('shuffle-array');
-
 export class StoryGenerator extends React.PureComponent<TStoryGeneratorDispatchProps & TStoryGeneratorOwnProps> {
   render() {
-    let key = -1;
-
     /* Throws if invalid. */
     validateStoryGeneratorProps(this.props);
 
-    const models = this.props.questions.map((model) => {
-      return <Question model={model} key={key += 1} />;
+    const questions = this.props.questions.map((model, index) => {
+      return (
+        <Question
+          {...model}
+          key={index}
+          setAnswerText={this.props.setAnswerText} />
+      );
     });
+
 
     return (
       <div className={`StoryGenerator ${(styles || {}).StoryGenerator}`}>
         StoryGenerator.
 
         {this.props.state === StoryStates.Complete ?
-          <CompletedStory models={this.props.questions} /> :
-          <InProgressStory>
-            {this.props.shuffle ?
-              shuffleArray(models) :
-              models}
+          <CompletedStory
+            models={this.props.questions}
+            proseTemplate={this.props.proseTemplate} /> :
+          <InProgressStory
+            setStoryState={this.props.setStoryState}>
+            {questions}
           </InProgressStory>}
       </div>
     );
@@ -94,39 +88,24 @@ export class StoryGenerator extends React.PureComponent<TStoryGeneratorDispatchP
 
 export const mapStateToProps = ({
   storyGenerator: {
-    answerablePercentage,
-    censoredPercentage,
     maxAnswerLength,
-    preAnsweredPercentage,
     questions,
-    shuffle,
     state,
   },
 }: {
   storyGenerator: TStoryGeneratorOwnProps,
 }) => ({
-  answerablePercentage,
-  censoredPercentage,
   maxAnswerLength,
-  preAnsweredPercentage,
   questions,
-  shuffle,
   state,
 });
 
 export const mapDispatchToProps: MapDispatchToPropsFactory<TStoryGeneratorDispatchProps, TStoryGeneratorOwnProps> = (dispatch: Dispatch<IStoryGeneratorAction>): MapDispatchToProps<TStoryGeneratorDispatchProps, TStoryGeneratorOwnProps> => ({
-  setAnswerablePercentage: (value: number) => {
+  setAnswerText: (value: string, id: number) => {
     const action = makeStoryGeneratorAction(
-      SetAnswerablePercentageAction,
-      value);
-
-    return dispatch(action);
-  },
-  
-  setCensoredPercentage: (value: number) => {
-    const action = makeStoryGeneratorAction(
-      SetCensoredPercentageAction,
-      value);
+      SetAnswerTextAction,
+      value,
+      id);
 
     return dispatch(action);
   },
@@ -136,21 +115,8 @@ export const mapDispatchToProps: MapDispatchToPropsFactory<TStoryGeneratorDispat
     return dispatch(action);
   },
   
-  setPreAnsweredPercentage: (value: number) => {
-    const action = makeStoryGeneratorAction(
-      SetPreAnsweredPercentageAction,
-      value);
-
-    return dispatch(action);
-  },
-  
   setQuestions: (value: Array<TQuestionModel>) => {
     const action = makeStoryGeneratorAction(SetQuestionsAction, value);
-    return dispatch(action);
-  },
-
-  setShuffle: (value: boolean) => {
-    const action = makeStoryGeneratorAction(SetShuffleAction, value);
     return dispatch(action);
   },
 

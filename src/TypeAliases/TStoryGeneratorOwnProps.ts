@@ -1,18 +1,18 @@
 import {
+  IProseTemplate,
+} from '../Interfaces/IProseTemplate';
+import {
+  IQuestionModel,
+} from '../Interfaces/IQuestionModel';
+import {
   StoryStates,
 } from '../Enums/StoryStates';
-import {
-  TQuestionModel,
-} from './TQuestionModel';
 
 export type TStoryGeneratorOwnProps = {
-  answerablePercentage:     number;
-  censoredPercentage:       number;
-  maxAnswerLength:          number;
-  preAnsweredPercentage:    number;
-  questions:                Array<TQuestionModel>;
-  shuffle:                  boolean;
-  state:                    StoryStates;
+  maxAnswerLength: number;
+  proseTemplate:   IProseTemplate;
+  questions:       Array<IQuestionModel>;
+  state:           StoryStates;
 }
 
 export default TStoryGeneratorOwnProps;

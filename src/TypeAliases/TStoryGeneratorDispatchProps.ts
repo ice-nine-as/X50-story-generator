@@ -9,13 +9,10 @@ import {
 } from './TQuestionModel';
 
 export type TStoryGeneratorDispatchProps = {
-  setAnswerablePercentage:  (value: number) => IStoryGeneratorAction;
-  setCensoredPercentage:    (value: number) => IStoryGeneratorAction;
-  setMaxAnswerLength:       (value: number) => IStoryGeneratorAction;
-  setPreAnsweredPercentage: (value: number) => IStoryGeneratorAction;
-  setQuestions:             (value: Array<TQuestionModel>) => IStoryGeneratorAction;
-  setShuffle:               (value: boolean) => IStoryGeneratorAction;
-  setStoryState:            (value: StoryStates) => IStoryGeneratorAction;
+  setAnswerText:      (value: string, id: number) => IStoryGeneratorAction;
+  setMaxAnswerLength: (value: number) => IStoryGeneratorAction;
+  setQuestions:       (value: Array<TQuestionModel>) => IStoryGeneratorAction;
+  setStoryState:      (value: StoryStates) => IStoryGeneratorAction;
 }
 
 export default TStoryGeneratorDispatchProps;

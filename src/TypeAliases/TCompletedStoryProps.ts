@@ -1,9 +1,13 @@
 import {
-  TQuestionModel,
-} from './TQuestionModel';
+  IProseTemplate,
+} from '../Interfaces/IProseTemplate';
+import {
+  IQuestionModel,
+} from '../Interfaces/IQuestionModel';
 
 export type TCompletedStoryProps = {
-  models: Array<TQuestionModel>;
+  models:        Array<IQuestionModel>;
+  proseTemplate: IProseTemplate;
 };
 
 export default TCompletedStoryProps;

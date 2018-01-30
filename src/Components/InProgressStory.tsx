@@ -2,6 +2,9 @@ import {
   Question,
 } from './Question';
 import {
+  StoryStates,
+} from '../Enums/StoryStates';
+import {
   TInProgressStoryProps,
 } from '../TypeAliases/TInProgressStoryProps';
 
@@ -32,7 +35,9 @@ export class InProgressStory extends React.PureComponent<TInProgressStoryProps> 
           return child;
         })}
 
-        <button className={`InProgressStoryComplete ${(styles || {}).InProgressStoryComplete}`}>
+        <button
+          className={`InProgressStoryComplete ${(styles || {}).InProgressStoryComplete}`}
+          onClick={() => this.props.setStoryState(StoryStates.Complete)}>
           Complete Story
         </button>
       </div>

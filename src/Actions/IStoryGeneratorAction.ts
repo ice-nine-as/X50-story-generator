@@ -6,6 +6,7 @@ import {
 } from '../Enums/StoryGeneratorActionTypes';
 
 export interface IStoryGeneratorAction extends Action {
+  id?:   number;
   type:  StoryGeneratorActionTypes;
   value: any;
 }

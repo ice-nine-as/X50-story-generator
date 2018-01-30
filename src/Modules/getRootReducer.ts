@@ -3,17 +3,8 @@ import {
   Reducer,
 } from 'redux';
 import {
-  answerablePercentageReducer,
-} from '../Reducers/answerablePercentageReducer';
-import {
-  censoredPercentageReducer,
-} from '../Reducers/censoredPercentageReducer';
-import {
   maxAnswerLengthReducer,
 } from '../Reducers/maxAnswerLengthReducer';
-import {
-  preAnsweredPercentageReducer,
-} from '../Reducers/preAnsweredPercentageReducer';
 import {
   questionsReducer,
 } from '../Reducers/questionsReducer';
@@ -29,13 +20,10 @@ import {
 
 export const getRootReducer = (): Reducer<TStoryGeneratorOwnProps> => {
   return combineReducers({
-    answerablePercentage:  answerablePercentageReducer,
-    censoredPercentage:    censoredPercentageReducer,
-    maxAnswerLength:       maxAnswerLengthReducer,
-    preAnsweredPercentage: preAnsweredPercentageReducer,
-    questions:             questionsReducer,
-    shuffle:               shuffleReducer,
-    state:                 stateReducer,
+    maxAnswerLength: maxAnswerLengthReducer,
+    questions:       questionsReducer,
+    shuffle:         shuffleReducer,
+    state:           stateReducer,
   });
 };
 

@@ -2,10 +2,22 @@ import {
   QuestionStates,
 } from '../Enums/QuestionStates';
 import {
+  TAnswerModel,
+} from '../TypeAliases/TAnswerModel';
+import {
   TQuestionModel,
 } from '../TypeAliases/TQuestionModel';
 
-export const getDefaultQuestionModels = (): Array<TQuestionModel> => {
+let id = -1;
+const answerFactory = (author = 'Ice 9', text: string = Math.random().toString(36)): TAnswerModel => {
+  return {
+    author,
+    id: id += 1,
+    text,
+  };
+};
+
+export const getDefaultQuestionModels = (): ReadonlyArray<TQuestionModel> => {
   const questionModels = [
     {
       big: true,
@@ -70,12 +82,25 @@ export const getDefaultQuestionModels = (): Array<TQuestionModel> => {
     },
   ];
 
-  return questionModels.map<TQuestionModel>((model) => {
-    return Object.assign({}, model, {
-      answer: null,
+  return Object.freeze(questionModels.map<TQuestionModel>((model: Partial<TQuestionModel>): TQuestionModel => {
+    const fullModel = Object.assign({}, model, {
+      author: 'Ice 9',
       state:  QuestionStates.Unset,
     });
-  });
+
+    if (fullModel.multiple) {
+      fullModel.answer = [];
+      for (let ii = 0; ii < fullModel.multiple; ii += 1) {
+        fullModel.answer.push(answerFactory());
+        fullModel.answer[ii].big = fullModel.big;
+      }
+    } else {
+      fullModel.answer = answerFactory();
+      fullModel.answer.big = fullModel.big;
+    }
+
+    return Object.freeze(fullModel as TQuestionModel);
+  }));
 }
 
 export default getDefaultQuestionModels;
