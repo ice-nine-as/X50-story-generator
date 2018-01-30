@@ -6,6 +6,9 @@ import {
   maxAnswerLengthReducer,
 } from '../Reducers/maxAnswerLengthReducer';
 import {
+  proseTemplateReducer,
+} from '../Reducers/proseTemplateReducer';
+import {
   questionsReducer,
 } from '../Reducers/questionsReducer';
 import {
@@ -21,6 +24,7 @@ import {
 export const getRootReducer = (): Reducer<TStoryGeneratorOwnProps> => {
   return combineReducers({
     maxAnswerLength: maxAnswerLengthReducer,
+    proseTemplate:   proseTemplateReducer,
     questions:       questionsReducer,
     shuffle:         shuffleReducer,
     state:           stateReducer,
