@@ -23,7 +23,7 @@ const answerFactory =
         if (state === QuestionStates.PreAnswered) {
           return 'PREANSWERED: ' + Math.random().toString(36).split('').join('.');
         } else if (state === QuestionStates.Censored) {
-          return Math.random().toString(36).split('').join('.');
+          return 'CENSORED: ' + Math.random().toString(36).split('').join('.');
         }        
       }
 
