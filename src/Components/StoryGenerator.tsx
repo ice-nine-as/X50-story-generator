@@ -2,17 +2,20 @@ import {
   CompletedStory,
 } from './CompletedStory';
 import {
-  Question,
-} from './Question';
-import {
   InProgressStory,
 } from './InProgressStory';
+import {
+  IQuestionModel,
+} from '../Interfaces/IQuestionModel';
 import {
   IStoryGeneratorAction,
 } from '../Actions/IStoryGeneratorAction';
 import {
   makeStoryGeneratorAction,
 } from '../Modules/makeStoryGeneratorAction';
+import {
+  Question,
+} from './Question';
 import {
   connect,
   MapDispatchToProps,
@@ -42,9 +45,6 @@ import {
 import {
   TStoryGeneratorOwnProps,
 } from '../TypeAliases/TStoryGeneratorOwnProps';
-import {
-  TQuestionModel,
-} from '../TypeAliases/TQuestionModel';
 import {
   validateStoryGeneratorProps,
 } from '../Validators/validateStoryGeneratorProps';
@@ -89,6 +89,7 @@ export class StoryGenerator extends React.PureComponent<TStoryGeneratorDispatchP
 export const mapStateToProps = ({
   storyGenerator: {
     maxAnswerLength,
+    proseTemplate,
     questions,
     state,
   },
@@ -96,6 +97,7 @@ export const mapStateToProps = ({
   storyGenerator: TStoryGeneratorOwnProps,
 }) => ({
   maxAnswerLength,
+  proseTemplate,
   questions,
   state,
 });
@@ -115,7 +117,7 @@ export const mapDispatchToProps: MapDispatchToPropsFactory<TStoryGeneratorDispat
     return dispatch(action);
   },
   
-  setQuestions: (value: Array<TQuestionModel>) => {
+  setQuestions: (value: Array<IQuestionModel>) => {
     const action = makeStoryGeneratorAction(SetQuestionsAction, value);
     return dispatch(action);
   },

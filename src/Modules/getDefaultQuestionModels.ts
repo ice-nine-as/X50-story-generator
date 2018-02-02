@@ -2,26 +2,56 @@ import {
   QuestionStates,
 } from '../Enums/QuestionStates';
 import {
-  TAnswerModel,
-} from '../TypeAliases/TAnswerModel';
+  IAnswerModel,
+} from '../Interfaces/IAnswerModel';
 import {
-  TQuestionModel,
-} from '../TypeAliases/TQuestionModel';
+  IQuestionModel,
+} from '../Interfaces/IQuestionModel';
+import {
+  QuestionTypes,
+} from '../Enums/QuestionTypes';
 
-let id = -1;
-const answerFactory = (author = 'Ice 9', text: string = Math.random().toString(36)): TAnswerModel => {
-  return {
-    author,
-    id: id += 1,
-    text,
-  };
-};
+const answerFactory =
+  (id: number,
+    type: QuestionTypes = QuestionTypes.Normal,
+    state: QuestionStates = QuestionStates.Answerable,
+    author = 'Ice 9',
+    text: string = ''): IAnswerModel =>
+  {
+    const _text = (() => {
+      if (text.length === 0) {
+        if (state === QuestionStates.PreAnswered) {
+          return 'PREANSWERED: ' + Math.random().toString(36).split('').join('.');
+        } else if (state === QuestionStates.Censored) {
+          return Math.random().toString(36).split('').join('.');
+        }        
+      }
 
-export const getDefaultQuestionModels = (): ReadonlyArray<TQuestionModel> => {
+      return text;
+    })();
+
+    const model = {
+      author,
+      id,
+      state,
+      type,
+      text: _text,
+    };
+
+    if (type === QuestionTypes.Select) {
+      (model as any).selections = [ 'Yes', 'No', 'Sort of', ];      
+    }
+
+    return model;
+  }
+
+export const getDefaultQuestionModels = (): ReadonlyArray<IQuestionModel> => {
+  let answerId = -1;
+
   const questionModels = [
     {
-      big: true,
       text: 'Who is X?',
+      type: QuestionTypes.Big,
     },
 
     {
@@ -47,6 +77,7 @@ export const getDefaultQuestionModels = (): ReadonlyArray<TQuestionModel> => {
 
     {
       text: 'Is X in a relationship?',
+      type: QuestionTypes.Select,
     },
 
     {
@@ -82,24 +113,29 @@ export const getDefaultQuestionModels = (): ReadonlyArray<TQuestionModel> => {
     },
   ];
 
-  return Object.freeze(questionModels.map<TQuestionModel>((model: Partial<TQuestionModel>): TQuestionModel => {
+  return Object.freeze(questionModels.map<IQuestionModel>((model: Partial<IQuestionModel>): IQuestionModel => {
+    const state = ((): QuestionStates => {
+      const keys = Object.keys(QuestionStates);
+      /* Skip Unset, the last element. */
+      const rand = Math.floor(Math.random() * (keys.length - 1));
+      return (QuestionStates as any)[keys[rand]];
+    })();
+
     const fullModel = Object.assign({}, model, {
       author: 'Ice 9',
-      state:  QuestionStates.Unset,
+      state,
     });
 
     if (fullModel.multiple) {
       fullModel.answer = [];
       for (let ii = 0; ii < fullModel.multiple; ii += 1) {
-        fullModel.answer.push(answerFactory());
-        fullModel.answer[ii].big = fullModel.big;
+        fullModel.answer.push(answerFactory(answerId += 1, fullModel.type, state));
       }
     } else {
-      fullModel.answer = answerFactory();
-      fullModel.answer.big = fullModel.big;
+      fullModel.answer = answerFactory(answerId += 1, fullModel.type, state);
     }
 
-    return Object.freeze(fullModel as TQuestionModel);
+    return Object.freeze(fullModel as IQuestionModel);
   }));
 }
 

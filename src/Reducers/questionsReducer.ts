@@ -2,6 +2,9 @@ import {
   getDefaultQuestionModels,
 } from '../Modules/getDefaultQuestionModels';
 import {
+  IQuestionModel,
+} from '../Interfaces/IQuestionModel';
+import {
   isStoryGeneratorAction,
 } from '../TypeGuards/isStoryGeneratorAction';
 import {
@@ -14,12 +17,9 @@ import {
 import {
   StoryGeneratorActionTypes,
 } from '../Enums/StoryGeneratorActionTypes';
-import {
-  TQuestionModel,
-} from '../TypeAliases/TQuestionModel';
 
-export const questionsReducer: Reducer<Array<TQuestionModel>> =
-  (previousState: ReadonlyArray<TQuestionModel> = getDefaultQuestionModels(),
+export const questionsReducer: Reducer<Array<IQuestionModel>> =
+  (previousState: ReadonlyArray<IQuestionModel> = getDefaultQuestionModels(),
     action: IStoryGeneratorAction | AnyAction) =>
 {
   if (isStoryGeneratorAction(action)) {

@@ -1,7 +1,4 @@
 import {
-  default as escape,
-} from 'escape-string-regexp';
-import {
   IProseTemplate,
 } from '../Interfaces/IProseTemplate';
 import {
@@ -10,9 +7,11 @@ import {
 
 export const strings = {
   TEXT_INVALID:
-    'The text argument passed to the ProseTemplate constructor was not a ' +
-    'string with content.',
+  'The text argument passed to the ProseTemplate constructor was not a ' +
+  'string with content.',
 };
+
+const escape = require('escape-string-regexp');
 
 export class ProseTemplate implements IProseTemplate {
   text: string = '';
@@ -33,7 +32,8 @@ export class ProseTemplate implements IProseTemplate {
     let completed = this.text;
 
     Object.keys(substitutions).forEach((key) => {
-      completed = completed.replace(escape(key), substitutions[key]);
+      const re = new RegExp(escape(key), 'g');
+      completed = completed.replace(re, substitutions[key]);
     });
 
     return completed;

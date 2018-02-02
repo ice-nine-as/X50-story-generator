@@ -6,8 +6,8 @@ import {
 } from '../Interfaces/IQuestionModel';
 
 export type TCompletedStoryProps = {
-  models:        Array<IQuestionModel>;
-  proseTemplate: IProseTemplate;
+  models:          ReadonlyArray<IQuestionModel>;
+  proseTemplate:   IProseTemplate;
 };
 
 export default TCompletedStoryProps;

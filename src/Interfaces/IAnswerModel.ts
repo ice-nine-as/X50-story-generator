@@ -1,4 +1,7 @@
 import {
+  QuestionStates,
+} from '../Enums/QuestionStates';
+import {
   QuestionTypes,
 } from '../Enums/QuestionTypes';
 import {
@@ -9,6 +12,7 @@ export interface IAnswerModel {
   author:      string;
   id:          number;
   selections?: ReadonlyArray<TSubstitutionValue>;
+  state:       QuestionStates;
   text:        string;
   type:        QuestionTypes;
 }

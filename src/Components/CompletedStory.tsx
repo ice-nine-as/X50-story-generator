@@ -1,6 +1,9 @@
 import {
   TCompletedStoryProps,
 } from '../TypeAliases/TCompletedStoryProps';
+import {
+  TSubstitutionMap,
+} from '../TypeAliases/TSubstitutionMap';
 
 import * as React from 'react';
 
@@ -9,22 +12,18 @@ import styles from '../Styles/Components/CompletedStory.less';
 
 export class CompletedStory extends React.PureComponent<TCompletedStoryProps> {
   render() {
-    const value = this.props.models.reduce<string>((text, questionModel) => {
-      if (Array.isArray(questionModel.answer)) {
-        return text + questionModel.text + ' ' +
-          questionModel.answer.reduce<string>((text, answerModel) => (
-            text +
-              (answerModel.text.endsWith('.') ?
-                answerModel.text + ' ' :
-                answerModel.text + '. ')
-        ), '');
+    const substitutionMap: TSubstitutionMap = this.props.models.reduce((map, model) => {
+      if (Array.isArray(model.answer)) {
+        model.answer.forEach((answer) => {
+          map[`{{${answer.id}}}`] = answer.text;
+        });
       } else {
-        return text + questionModel.text + ' ' +
-          (questionModel.answer.text.endsWith('.') ?
-            questionModel.answer.text + ' ' :
-            questionModel.answer.text + '. ');
+        map[`{{${model.answer.id}}}`] = model.answer.text;
       }
-    }, '');
+      return map;
+    }, {} as TSubstitutionMap);
+
+    const storyText = this.props.proseTemplate.complete(substitutionMap);
 
     return (
       <div className={`CompletedStory ${(styles || {}).CompletedStory}`}>
@@ -32,7 +31,7 @@ export class CompletedStory extends React.PureComponent<TCompletedStoryProps> {
         
         <textarea
           className={`CompletedStoryTextArea ${(styles || {}).CompletedStoryTextArea}`}
-          defaultValue={value} />
+          defaultValue={storyText} />
 
         <button className={`CompletedStorySubmitButton ${(styles || {}).CompletedStoryTextArea}`}>
           Submit My Story

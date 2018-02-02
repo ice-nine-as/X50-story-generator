@@ -3,7 +3,7 @@ import {
 } from '../TypeAliases/TSubstitutionMap';
 
 export interface IProseTemplate {
-  complete(substitions: TSubstitutionMap): string;
+  complete(substitutionMap: TSubstitutionMap): string;
   text: string;
 }
 

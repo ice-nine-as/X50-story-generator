@@ -6,7 +6,7 @@ const webpack          = require('webpack');
 module.exports = {
   name:    'es5',
   target:  'web',
-  devtool: 'source-map',
+  //devtool: 'source-map',
   entry: [
     'babel-polyfill',
     resolve(__dirname, '../src/index.tsx'),

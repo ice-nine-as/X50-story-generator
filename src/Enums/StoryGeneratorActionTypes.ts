@@ -3,6 +3,7 @@ export enum StoryGeneratorActionTypes {
   SetMaxAnswerLength = 'SET_MAX_ANSWER_LENGTH',
   SetProseTemplate   = 'SET_PROSE_TEMPLATE',
   SetQuestions       = 'SET_QUESTION',
+  SetShuffle         = 'SET_SHUFFLE',
   SetState           = 'SET_STATE',
 }
 

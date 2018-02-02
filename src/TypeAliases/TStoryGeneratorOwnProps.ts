@@ -7,11 +7,15 @@ import {
 import {
   StoryStates,
 } from '../Enums/StoryStates';
+import {
+  TSubstitutionMap,
+} from './TSubstitutionMap';
 
 export type TStoryGeneratorOwnProps = {
   maxAnswerLength: number;
   proseTemplate:   IProseTemplate;
-  questions:       Array<IQuestionModel>;
+  questions:       ReadonlyArray<IQuestionModel>;
+  substitutionMap: TSubstitutionMap;
   state:           StoryStates;
 }
 

@@ -1,12 +1,15 @@
 import {
+  getDefaultProseTemplate,
+} from '../Modules/getDefaultProseTemplate';
+import {
+  IProseTemplate,
+} from '../Interfaces/IProseTemplate';
+import {
   isStoryGeneratorAction,
 } from '../TypeGuards/isStoryGeneratorAction';
 import {
   IStoryGeneratorAction,
 } from '../Actions/IStoryGeneratorAction';
-import {
-  ProseTemplate,
-} from '../Objects/ProseTemplate';
 import {
   AnyAction,
   Reducer,
@@ -15,14 +18,15 @@ import {
   StoryGeneratorActionTypes,
 } from '../Enums/StoryGeneratorActionTypes';
 
-export const proseTemplateReducer: Reducer<ProseTemplate | null> = (previousState: ProseTemplate | null = null, action: IStoryGeneratorAction | AnyAction) => {
-  if (isStoryGeneratorAction(action) &&
-    action.type === StoryGeneratorActionTypes.SetProseTemplate)
-  {
-    return action.value;
-  }
+export const proseTemplateReducer: Reducer<IProseTemplate> =
+  (previousState: IProseTemplate = getDefaultProseTemplate(), action: IStoryGeneratorAction | AnyAction) => {
+    if (isStoryGeneratorAction(action) &&
+      action.type === StoryGeneratorActionTypes.SetProseTemplate)
+    {
+      return action.value;
+    }
 
-  return previousState;
-};
+    return previousState;
+  };
 
 export default proseTemplateReducer;

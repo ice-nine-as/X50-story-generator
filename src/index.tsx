@@ -48,17 +48,8 @@ export * from 'redux';
 
 /* Reducers */
 export {
-  answerablePercentageReducer,
-} from './Reducers/answerablePercentageReducer';
-export {
-  censoredPercentageReducer,
-} from './Reducers/censoredPercentageReducer';
-export {
   maxAnswerLengthReducer,
 } from './Reducers/maxAnswerLengthReducer';
-export {
-  preAnsweredPercentageReducer,
-} from './Reducers/preAnsweredPercentageReducer';
 export {
   questionsReducer,
 } from './Reducers/questionsReducer';
@@ -71,9 +62,6 @@ export {
 
 /* TypeAliases */
 export {
-  TAnswerModel,
-} from './TypeAliases/TAnswerModel';
-export {
   TCompletedStoryProps,
 } from './TypeAliases/TCompletedStoryProps';
 export {
@@ -82,12 +70,6 @@ export {
 export {
   TOneOrArray,
 } from './TypeAliases/TOneOrArray';
-export {
-  TQuestionModel,
-} from './TypeAliases/TQuestionModel';
-export {
-  TQuestionProps,
-} from './TypeAliases/TQuestionProps';
 export {
   TStoryGeneratorDispatchProps,
 } from './TypeAliases/TStoryGeneratorDispatchProps';
