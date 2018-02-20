@@ -1,7 +1,7 @@
 export enum QuestionTypes {
-  Big    = 'BIG',
-  Normal = 'NORMAL',
-  Select = 'SELECT',
+  Big    = 'Big',
+  Normal = 'Normal',
+  Select = 'Select',
 }
 
 export default QuestionTypes;

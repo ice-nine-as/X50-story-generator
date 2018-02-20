@@ -1,5 +1,4 @@
 browser-test/
-dist/
 node_modules/
 .awcache
 .DS_Store
