@@ -29,6 +29,9 @@ export {
   getDefaultQuestionModels,
 } from './Modules/getDefaultQuestionModels';
 export {
+  getRootReducer,
+} from './Modules/getRootReducer';
+export {
   getStore,
 } from './Modules/getStore';
 export {
