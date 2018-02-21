@@ -6,6 +6,7 @@ export { QuestionStates, } from './Enums/QuestionStates';
 export { StoryGeneratorActionTypes, } from './Enums/StoryGeneratorActionTypes';
 export { StoryStates, } from './Enums/StoryStates';
 export { getDefaultQuestionModels, } from './Modules/getDefaultQuestionModels';
+export { getRootReducer, } from './Modules/getRootReducer';
 export { getStore, } from './Modules/getStore';
 export { makeStoryGeneratorAction, } from './Modules/makeStoryGeneratorAction';
 import * as _React from 'react';
