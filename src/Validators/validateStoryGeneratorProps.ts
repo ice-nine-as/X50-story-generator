@@ -38,8 +38,8 @@ export const validateStoryGeneratorProps = (props: any) => {
   if (typeof props !== 'object' || !props) {
     throw new Error(strings.PROPS_INVALID);
   } else if (typeof props.maxAnswerLength !== 'number' ||
-    Number.isNaN(props.maxAnswerLength) ||
-    !Number.isSafeInteger(props.maxAnswerLength) ||
+    (<any>Number).isNaN(props.maxAnswerLength) ||
+    !(<any>Number).isSafeInteger(props.maxAnswerLength) ||
     props.maxAnswerLength <= 0)
   {
     throw new Error(strings.MAX_ANSWER_LENGTH_INVALID);
@@ -49,7 +49,7 @@ export const validateStoryGeneratorProps = (props: any) => {
     throw new Error(strings.QUESTIONS_INVALID);
   } else if (props.questions.length === 0) {
     throw new Error(strings.QUESTIONS_EMPTY);
-  } else if (!Object.values(StoryStates).includes(props.state)) {
+  } else if (!(<any>Object).values(StoryStates).includes(props.state)) {
     throw new Error(strings.STATE_INVALID);
   }
 

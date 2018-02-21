@@ -1,8 +1,18 @@
-const gulp           = require('gulp');
-const { mkdir, }     = require('fs');
-const { promisify, } = require('util');
-const { resolve, }   = require('path');
-const rimraf         = require('rimraf');
+const {
+  exec,
+} = require('child_process');
+const gulp = require('gulp');
+const gts = require('gulp-typescript');
+const {
+  mkdir,
+} = require('fs');
+const {
+  promisify,
+} = require('util');
+const {
+  resolve,
+} = require('path');
+const rimraf = require('rimraf');
 
 gulp.task('clean-es5', async () => {
   const _rimraf = promisify(rimraf);

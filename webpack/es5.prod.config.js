@@ -12,7 +12,7 @@ module.exports = {
   ],
 
   output: {
-    filename:   '[name].[chunkhash].js',
+    filename:   '[name].js',
     library:    'StoryGeneratorModule',
     path:       resolve(__dirname, '../dist/es5/'),
     publicPath: '/static/',

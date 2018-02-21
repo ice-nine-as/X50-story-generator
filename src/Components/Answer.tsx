@@ -30,7 +30,7 @@ export class Answer extends React.PureComponent<IAnswerProps> {
       };
 
       if (this.props.state === QuestionStates.Censored) {
-        const _props = Object.assign({}, props);
+        const _props = (Object as any).assign({}, props);
 
         /* Censored components are uncontrolled, so should have no default
          * value. */

@@ -7,6 +7,7 @@
 
   "compilerOptions": {
     "allowJs":                          false,
+    "declaration":                      true,
     "downlevelIteration":               true,
     "forceConsistentCasingInFileNames": true,
     "jsx":                              "react",
@@ -14,10 +15,11 @@
       "dom",
       "esnext",
       "es2017",
+      "es2017.object",
       "es2015.collection"
     ],
 
-    "module":                           "commonjs",
+    "module":                           "esnext",
     "moduleResolution":                 "node",
     "noEmitOnError":                    true,
     "noFallthroughCasesInSwitch":       true,
@@ -25,6 +27,7 @@
     "noUnusedParameters":               true,
     "noImplicitAny":                    true,
     "noImplicitReturns":                true,
+    "outDir":                           "dist/esnext",
     "strictNullChecks":                 true,
     "preserveConstEnums":               true,
     "removeComments":                   true,
@@ -37,5 +40,8 @@
     "node_modules"
   ],
 
-  "include": [ "src/index.tsx" ]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
 }

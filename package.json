@@ -37,6 +37,7 @@
     "extract-css-chunks-webpack-plugin": "^2.0.18",
     "gulp": "^3.9.1",
     "gulp-cli": "^2.0.0",
+    "gulp-typescript": "^4.0.1",
     "hard-source-webpack-plugin": "^0.5.16",
     "jest": "^22.1.4",
     "jest-css-modules": "^1.1.0",
@@ -58,12 +59,11 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "build-dev": "cross-env NODE_ENV='development' gulp clean-all    && webpack --config webpack/es5.dev.config.js && webpack --config webpack/esnext.dev.config.js",
-    "build-dev-esnext": "cross-env NODE_ENV='development' gulp clean-esnext && webpack --config webpack/esnext.dev.config.js",
-    "build-dev-es5": "cross-env NODE_ENV='development' gulp clean-es5    && webpack --config webpack/es5.dev.config.js",
-    "build-prod": "cross-env NODE_ENV='production'  gulp clean-all    && webpack --config webpack/es5.prod.config.js && webpack --config webpack/esnext.prod.config.js",
-    "build-prod-esnext": "cross-env NODE_ENV='production'  gulp clean-esnext && webpack --config webpack/esnext.prod.config.js",
-    "build-prod-es5": "cross-env NODE_ENV='production'  gulp clean-es5    && webpack --config webpack/es5.prod.config.js",
+    "build-dev": "cross-env NODE_ENV='development' npm run build-dev-es5 && npm run build-esnext",
+    "build-esnext": "gulp clean-esnext && tsc",
+    "build-dev-es5": "cross-env NODE_ENV='development' gulp clean-es5 && webpack --config webpack/es5.dev.config.js",
+    "build-prod": "cross-env NODE_ENV='production' npm run build-prod-es5 && npm run build-esnext",
+    "build-prod-es5": "cross-env NODE_ENV='production' gulp clean-es5 && webpack --config webpack/es5.prod.config.js",
     "test": "jest"
   },
   "repository": {

@@ -10,7 +10,7 @@ export const censorText = (text: string): string => {
   }
 
   /* \u2588 is █. */
-  return '\u2588'.repeat(text.length);
+  return ('\u2588' as any).repeat(text.length);
 };
 
 export default censorText;

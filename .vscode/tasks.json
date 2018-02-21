@@ -8,10 +8,14 @@
       "script": "build-dev-esnext",
       "problemMatcher": []
     },
-
     {
       "type": "npm",
       "script": "build-dev-es5",
+      "problemMatcher": [],
+    },
+    {
+      "type": "npm",
+      "script": "build-prod",
       "problemMatcher": [],
       "group": {
         "kind": "build",

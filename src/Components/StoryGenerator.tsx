@@ -5,6 +5,10 @@ import {
   InProgressStory,
 } from './InProgressStory';
 import {
+  // @ts-ignore
+  IProseTemplate,
+} from '../Interfaces/IProseTemplate';
+import {
   IQuestionModel,
 } from '../Interfaces/IQuestionModel';
 import {

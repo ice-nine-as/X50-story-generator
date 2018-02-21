@@ -5,7 +5,7 @@ import {
 export const makeStoryGeneratorAction =
   function (action: IStoryGeneratorAction, value: any, id?: number): IStoryGeneratorAction
 {
-  const act = Object.assign({}, action, { value, });
+  const act = (<any>Object).assign({}, action, { value, });
   if (arguments.length >= 3) {
     act.id = id;
   }

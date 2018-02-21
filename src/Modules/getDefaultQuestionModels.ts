@@ -121,7 +121,7 @@ export const getDefaultQuestionModels = (): ReadonlyArray<IQuestionModel> => {
       return (QuestionStates as any)[keys[rand]];
     })();
 
-    const fullModel = Object.assign({}, model, {
+    const fullModel = (<any>Object).assign({}, model, {
       author: 'Ice 9',
       state,
     });
