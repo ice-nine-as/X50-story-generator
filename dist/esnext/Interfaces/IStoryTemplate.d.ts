@@ -1,6 +1,6 @@
 import { TSubstitutionMap } from '../TypeAliases/TSubstitutionMap';
-export interface IProseTemplate {
+export interface IStoryTemplate {
     complete(substitutionMap: TSubstitutionMap): string;
     text: string;
 }
-export default IProseTemplate;
+export default IStoryTemplate;

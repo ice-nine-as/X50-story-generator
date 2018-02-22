@@ -1,7 +1,7 @@
 {
   "name": "x50-story-generator",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "The story generator for the X50 multimedia project.",
   "main": "dist/es5/index.js",
   "module": "dist/esnext/index.js",

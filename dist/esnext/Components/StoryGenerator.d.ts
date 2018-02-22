@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { IProseTemplate } from '../Interfaces/IProseTemplate';
+import { IStoryTemplate } from '../Interfaces/IStoryTemplate';
 import { IQuestionModel } from '../Interfaces/IQuestionModel';
 import { MapDispatchToPropsFactory } from 'react-redux';
 import { StoryStates } from '../Enums/StoryStates';
@@ -13,7 +13,7 @@ export declare const mapStateToProps: ({storyGenerator: {maxAnswerLength, proseT
     storyGenerator: TStoryGeneratorOwnProps;
 }) => {
     maxAnswerLength: number;
-    proseTemplate: IProseTemplate;
+    proseTemplate: IStoryTemplate;
     questions: ReadonlyArray<IQuestionModel>;
     state: StoryStates;
 };

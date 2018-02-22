@@ -3,7 +3,7 @@ export const strings = {
         'string with content.',
 };
 const escape = require('escape-string-regexp');
-export class ProseTemplate {
+export class StoryTemplate {
     constructor(text) {
         this.text = '';
         if (typeof text !== 'string' || text.length === 0) {
@@ -23,4 +23,4 @@ export class ProseTemplate {
         return completed;
     }
 }
-export default ProseTemplate;
+export default StoryTemplate;

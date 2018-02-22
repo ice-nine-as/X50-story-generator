@@ -1,6 +1,6 @@
 export { AnswerTextAction, } from './Actions/AnswerTextAction';
 export { MaxAnswerLengthAction, } from './Actions/MaxAnswerLengthAction';
-export { ProseTemplateAction, } from './Actions/ProseTemplateAction';
+export { StoryTemplateAction, } from './Actions/StoryTemplateAction';
 export { QuestionsAction, } from './Actions/QuestionsAction';
 export { StateAction, } from './Actions/StateAction';
 export { Answer, } from './Components/Answer';
@@ -19,7 +19,7 @@ export { maxAnswerLengthReducer, } from './Reducers/maxAnswerLengthReducer';
 export { proseTemplateReducer, } from './Reducers/proseTemplateReducer';
 export { questionsReducer, } from './Reducers/questionsReducer';
 export { stateReducer, } from './Reducers/stateReducer';
-export { isProseTemplate, } from './TypeGuards/isProseTemplate';
+export { isStoryTemplate, } from './TypeGuards/isStoryTemplate';
 export { isStoryGeneratorAction, } from './TypeGuards/isStoryGeneratorAction';
 export { isStoryGeneratorActionType, } from './TypeGuards/isStoryGeneratorActionType';
 export { isStoryState, } from './TypeGuards/isStoryState';

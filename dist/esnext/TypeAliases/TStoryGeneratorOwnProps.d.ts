@@ -1,10 +1,10 @@
-import { IProseTemplate } from '../Interfaces/IProseTemplate';
+import { IStoryTemplate } from '../Interfaces/IStoryTemplate';
 import { IQuestionModel } from '../Interfaces/IQuestionModel';
 import { StoryStates } from '../Enums/StoryStates';
 import { TSubstitutionMap } from './TSubstitutionMap';
 export declare type TStoryGeneratorOwnProps = {
     maxAnswerLength: number;
-    proseTemplate: IProseTemplate;
+    proseTemplate: IStoryTemplate;
     questions: ReadonlyArray<IQuestionModel>;
     substitutionMap: TSubstitutionMap;
     state: StoryStates;

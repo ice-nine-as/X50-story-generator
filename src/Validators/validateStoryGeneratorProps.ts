@@ -1,6 +1,6 @@
 import {
-  isProseTemplate,
-} from '../TypeGuards/isProseTemplate';
+  isStoryTemplate,
+} from '../TypeGuards/isStoryTemplate';
 import {
   StoryStates,
 } from '../Enums/StoryStates';
@@ -43,7 +43,7 @@ export const validateStoryGeneratorProps = (props: any) => {
     props.maxAnswerLength <= 0)
   {
     throw new Error(strings.MAX_ANSWER_LENGTH_INVALID);
-  } else if (!isProseTemplate(props.proseTemplate)) {
+  } else if (!isStoryTemplate(props.proseTemplate)) {
     throw new Error(strings.PROSE_TEMPLATE_INVALID);
   } else if (!Array.isArray(props.questions)) {
     throw new Error(strings.QUESTIONS_INVALID);
