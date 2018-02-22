@@ -1,10 +1,10 @@
 export var StoryGeneratorActionTypes;
 (function (StoryGeneratorActionTypes) {
-    StoryGeneratorActionTypes["SetAnswerText"] = "SET_ANSWER_TEXT";
-    StoryGeneratorActionTypes["SetMaxAnswerLength"] = "SET_MAX_ANSWER_LENGTH";
-    StoryGeneratorActionTypes["SetProseTemplate"] = "SET_PROSE_TEMPLATE";
-    StoryGeneratorActionTypes["SetQuestions"] = "SET_QUESTION";
-    StoryGeneratorActionTypes["SetShuffle"] = "SET_SHUFFLE";
-    StoryGeneratorActionTypes["SetState"] = "SET_STATE";
+    StoryGeneratorActionTypes["AnswerText"] = "ANSWER_TEXT";
+    StoryGeneratorActionTypes["MaxAnswerLength"] = "MAX_ANSWER_LENGTH";
+    StoryGeneratorActionTypes["ProseTemplate"] = "PROSE_TEMPLATE";
+    StoryGeneratorActionTypes["Questions"] = "QUESTION";
+    StoryGeneratorActionTypes["Shuffle"] = "SHUFFLE";
+    StoryGeneratorActionTypes["State"] = "STATE";
 })(StoryGeneratorActionTypes || (StoryGeneratorActionTypes = {}));
 export default StoryGeneratorActionTypes;

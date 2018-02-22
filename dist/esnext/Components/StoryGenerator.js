@@ -3,10 +3,10 @@ import { InProgressStory, } from './InProgressStory';
 import { makeStoryGeneratorAction, } from '../Modules/makeStoryGeneratorAction';
 import { Question, } from './Question';
 import { connect, } from 'react-redux';
-import { SetAnswerTextAction, } from '../Actions/SetAnswerTextAction';
-import { SetMaxAnswerLengthAction, } from '../Actions/SetMaxAnswerLengthAction';
-import { SetQuestionsAction, } from '../Actions/SetQuestionsAction';
-import { SetStateAction, } from '../Actions/SetStateAction';
+import { AnswerTextAction, } from '../Actions/AnswerTextAction';
+import { MaxAnswerLengthAction, } from '../Actions/MaxAnswerLengthAction';
+import { QuestionsAction, } from '../Actions/QuestionsAction';
+import { StateAction, } from '../Actions/StateAction';
 import { StoryStates, } from '../Enums/StoryStates';
 import { validateStoryGeneratorProps, } from '../Validators/validateStoryGeneratorProps';
 import * as React from 'react';
@@ -32,19 +32,19 @@ export const mapStateToProps = ({ storyGenerator: { maxAnswerLength, proseTempla
 });
 export const mapDispatchToProps = (dispatch) => ({
     setAnswerText: (value, id) => {
-        const action = makeStoryGeneratorAction(SetAnswerTextAction, value, id);
+        const action = makeStoryGeneratorAction(AnswerTextAction, value, id);
         return dispatch(action);
     },
     setMaxAnswerLength: (value) => {
-        const action = makeStoryGeneratorAction(SetMaxAnswerLengthAction, value);
+        const action = makeStoryGeneratorAction(MaxAnswerLengthAction, value);
         return dispatch(action);
     },
     setQuestions: (value) => {
-        const action = makeStoryGeneratorAction(SetQuestionsAction, value);
+        const action = makeStoryGeneratorAction(QuestionsAction, value);
         return dispatch(action);
     },
     setStoryState: (value) => {
-        const action = makeStoryGeneratorAction(SetStateAction, value);
+        const action = makeStoryGeneratorAction(StateAction, value);
         return dispatch(action);
     },
 });

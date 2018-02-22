@@ -1,7 +1,7 @@
 import { StoryGeneratorActionTypes, } from '../Enums/StoryGeneratorActionTypes';
 import { StoryStates, } from '../Enums/StoryStates';
-export const SetStateAction = Object.freeze({
-    type: StoryGeneratorActionTypes.SetState,
+export const StateAction = Object.freeze({
+    type: StoryGeneratorActionTypes.State,
     value: StoryStates.InProgress,
 });
-export default SetStateAction;
+export default StateAction;

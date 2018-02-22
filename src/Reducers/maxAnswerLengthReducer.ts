@@ -14,7 +14,7 @@ import {
 
 export const maxAnswerLengthReducer: Reducer<number> = (previousState: number = 5000, action: IStoryGeneratorAction | AnyAction) => {
   if (isStoryGeneratorAction(action) &&
-    action.type === StoryGeneratorActionTypes.SetMaxAnswerLength)
+    action.type === StoryGeneratorActionTypes.MaxAnswerLength)
   {
     return action.value;
   }

@@ -8,9 +8,9 @@ import {
   StoryStates,
 } from '../Enums/StoryStates';
 
-export const SetStateAction: IStoryGeneratorAction = Object.freeze({
-  type:  StoryGeneratorActionTypes.SetState,
+export const StateAction: IStoryGeneratorAction = Object.freeze({
+  type:  StoryGeneratorActionTypes.State,
   value: StoryStates.InProgress,
 });
 
-export default SetStateAction;
+export default StateAction;

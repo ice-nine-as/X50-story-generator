@@ -1,9 +1,8 @@
-import { getDefaultQuestionModels, } from '../Modules/getDefaultQuestionModels';
 import { isStoryGeneratorAction, } from '../TypeGuards/isStoryGeneratorAction';
 import { StoryGeneratorActionTypes, } from '../Enums/StoryGeneratorActionTypes';
-export const questionsReducer = (previousState = getDefaultQuestionModels(), action) => {
+export const questionsReducer = (previousState = [], action) => {
     if (isStoryGeneratorAction(action)) {
-        if (action.type === StoryGeneratorActionTypes.SetQuestions) {
+        if (action.type === StoryGeneratorActionTypes.Questions) {
             return action.value;
         }
         else {

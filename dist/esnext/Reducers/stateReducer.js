@@ -3,7 +3,7 @@ import { StoryGeneratorActionTypes, } from '../Enums/StoryGeneratorActionTypes';
 import { StoryStates, } from '../Enums/StoryStates';
 export const stateReducer = (previousState = StoryStates.InProgress, action) => {
     if (isStoryGeneratorAction(action) &&
-        action.type === StoryGeneratorActionTypes.SetState) {
+        action.type === StoryGeneratorActionTypes.State) {
         return action.value;
     }
     return previousState;

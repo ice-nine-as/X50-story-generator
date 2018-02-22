@@ -29,17 +29,17 @@ import {
   Dispatch,
 } from 'redux';
 import {
-  SetAnswerTextAction,
-} from '../Actions/SetAnswerTextAction';
+  AnswerTextAction,
+} from '../Actions/AnswerTextAction';
 import {
-  SetMaxAnswerLengthAction,
-} from '../Actions/SetMaxAnswerLengthAction';
+  MaxAnswerLengthAction,
+} from '../Actions/MaxAnswerLengthAction';
 import {
-  SetQuestionsAction,
-} from '../Actions/SetQuestionsAction';
+  QuestionsAction,
+} from '../Actions/QuestionsAction';
 import {
-  SetStateAction,
-} from '../Actions/SetStateAction';
+  StateAction,
+} from '../Actions/StateAction';
 import {
   StoryStates,
 } from '../Enums/StoryStates';
@@ -109,7 +109,7 @@ export const mapStateToProps = ({
 export const mapDispatchToProps: MapDispatchToPropsFactory<TStoryGeneratorDispatchProps, TStoryGeneratorOwnProps> = (dispatch: Dispatch<IStoryGeneratorAction>): MapDispatchToProps<TStoryGeneratorDispatchProps, TStoryGeneratorOwnProps> => ({
   setAnswerText: (value: string, id: number) => {
     const action = makeStoryGeneratorAction(
-      SetAnswerTextAction,
+      AnswerTextAction,
       value,
       id);
 
@@ -117,17 +117,17 @@ export const mapDispatchToProps: MapDispatchToPropsFactory<TStoryGeneratorDispat
   },
   
   setMaxAnswerLength: (value: number) => {
-    const action = makeStoryGeneratorAction(SetMaxAnswerLengthAction, value);
+    const action = makeStoryGeneratorAction(MaxAnswerLengthAction, value);
     return dispatch(action);
   },
   
   setQuestions: (value: Array<IQuestionModel>) => {
-    const action = makeStoryGeneratorAction(SetQuestionsAction, value);
+    const action = makeStoryGeneratorAction(QuestionsAction, value);
     return dispatch(action);
   },
 
   setStoryState: (value: StoryStates) => {
-    const action = makeStoryGeneratorAction(SetStateAction, value);
+    const action = makeStoryGeneratorAction(StateAction, value);
     return dispatch(action);
   },
 });

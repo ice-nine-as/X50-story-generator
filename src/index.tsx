@@ -1,4 +1,27 @@
+/* Actions */
+export {
+  AnswerTextAction,
+} from './Actions/AnswerTextAction';
+export {
+  IStoryGeneratorAction,
+} from './Actions/IStoryGeneratorAction';
+export {
+  MaxAnswerLengthAction,
+} from './Actions/MaxAnswerLengthAction';
+export {
+  ProseTemplateAction,
+} from './Actions/ProseTemplateAction';
+export {
+  QuestionsAction,
+} from './Actions/QuestionsAction';
+export {
+  StateAction,
+} from './Actions/StateAction';
+
 /* Components */
+export {
+  Answer,
+} from './Components/Answer';
 export {
   CompletedStory,
 } from './Components/CompletedStory';
@@ -18,47 +41,53 @@ export {
   QuestionStates,
 } from './Enums/QuestionStates';
 export {
+  QuestionTypes,
+} from './Enums/QuestionTypes';
+export {
   StoryGeneratorActionTypes,
 } from './Enums/StoryGeneratorActionTypes';
 export {
   StoryStates,
 } from './Enums/StoryStates';
 
+/* Interfaces */
+export {
+  IAnswerModel,
+} from './Interfaces/IAnswerModel';
+export {
+  IAnswerProps,
+} from './Interfaces/IAnswerProps';
+export {
+  IProseTemplate,
+} from './Interfaces/IProseTemplate';
+export {
+  IQuestionModel,
+} from './Interfaces/IQuestionModel';
+export {
+  IQuestionProps,
+} from './Interfaces/IQuestionProps';
+
 /* Modules */
 export {
-  getDefaultQuestionModels,
-} from './Modules/getDefaultQuestionModels';
+  censorText,
+} from './Modules/censorText';
 export {
   getRootReducer,
 } from './Modules/getRootReducer';
 export {
-  getStore,
-} from './Modules/getStore';
-export {
   makeStoryGeneratorAction,
 } from './Modules/makeStoryGeneratorAction';
-
-/* React */
-import * as _React from 'react';
-export const React = _React;
-
-/* React-DOM */
-import * as _ReactDOM from 'react-dom';
-export const ReactDOM = _ReactDOM;
-
-/* Redux */
-export * from 'redux';
 
 /* Reducers */
 export {
   maxAnswerLengthReducer,
 } from './Reducers/maxAnswerLengthReducer';
 export {
+  proseTemplateReducer,
+} from './Reducers/proseTemplateReducer';
+export {
   questionsReducer,
 } from './Reducers/questionsReducer';
-export {
-  shuffleReducer,
-} from './Reducers/shuffleReducer';
 export {
   stateReducer,
 } from './Reducers/stateReducer';
@@ -79,8 +108,20 @@ export {
 export {
   TStoryGeneratorOwnProps,
 } from './TypeAliases/TStoryGeneratorOwnProps';
+export {
+  TSubstitutionKey,
+} from './TypeAliases/TSubstitutionKey';
+export {
+  TSubstitutionMap,
+} from './TypeAliases/TSubstitutionMap';
+export {
+  TSubstitutionValue,
+} from './TypeAliases/TSubstitutionValue';
 
 /* TypeGuards */
+export {
+  isProseTemplate,
+} from './TypeGuards/isProseTemplate';
 export {
   isStoryGeneratorAction,
 } from './TypeGuards/isStoryGeneratorAction';
@@ -90,6 +131,12 @@ export {
 export {
   isStoryState,
 } from './TypeGuards/isStoryState';
+export {
+  isSubstitutionKey,
+} from './TypeGuards/isSubstitutionKey';
+export {
+  isSubstitutionValue,
+} from './TypeGuards/isSubstitutionValue';
 
 /* Validators */
 export {

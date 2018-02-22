@@ -5,9 +5,9 @@ import {
   StoryGeneratorActionTypes,
 } from '../Enums/StoryGeneratorActionTypes';
 
-export const SetAnswerTextAction: IStoryGeneratorAction = Object.freeze({
-  type:  StoryGeneratorActionTypes.SetAnswerText,
+export const AnswerTextAction: IStoryGeneratorAction = Object.freeze({
+  type:  StoryGeneratorActionTypes.AnswerText,
   value: '',
 });
 
-export default SetAnswerTextAction;
+export default AnswerTextAction;

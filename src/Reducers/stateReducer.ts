@@ -15,9 +15,12 @@ import {
   StoryStates,
 } from '../Enums/StoryStates';
 
-export const stateReducer: Reducer<StoryStates> = (previousState: StoryStates = StoryStates.InProgress, action: IStoryGeneratorAction | AnyAction) => {
+export const stateReducer: Reducer<StoryStates> =
+  (previousState: StoryStates = StoryStates.InProgress,
+    action: IStoryGeneratorAction | AnyAction) =>
+{
   if (isStoryGeneratorAction(action) &&
-    action.type === StoryGeneratorActionTypes.SetState)
+    action.type === StoryGeneratorActionTypes.State)
   {
     return action.value;
   }

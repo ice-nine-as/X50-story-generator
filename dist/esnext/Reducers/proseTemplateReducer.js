@@ -1,9 +1,8 @@
-import { getDefaultProseTemplate, } from '../Modules/getDefaultProseTemplate';
 import { isStoryGeneratorAction, } from '../TypeGuards/isStoryGeneratorAction';
 import { StoryGeneratorActionTypes, } from '../Enums/StoryGeneratorActionTypes';
-export const proseTemplateReducer = (previousState = getDefaultProseTemplate(), action) => {
+export const proseTemplateReducer = (previousState = null, action) => {
     if (isStoryGeneratorAction(action) &&
-        action.type === StoryGeneratorActionTypes.SetProseTemplate) {
+        action.type === StoryGeneratorActionTypes.ProseTemplate) {
         return action.value;
     }
     return previousState;

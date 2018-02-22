@@ -12,9 +12,6 @@ import {
   questionsReducer,
 } from '../Reducers/questionsReducer';
 import {
-  shuffleReducer,
-} from '../Reducers/shuffleReducer';
-import {
   stateReducer,
 } from '../Reducers/stateReducer';
 import {
@@ -26,7 +23,6 @@ export const getRootReducer = (): Reducer<TStoryGeneratorOwnProps> => {
     maxAnswerLength: maxAnswerLengthReducer,
     proseTemplate:   proseTemplateReducer,
     questions:       questionsReducer,
-    shuffle:         shuffleReducer,
     state:           stateReducer,
   });
 };

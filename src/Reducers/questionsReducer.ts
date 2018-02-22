@@ -1,7 +1,4 @@
 import {
-  getDefaultQuestionModels,
-} from '../Modules/getDefaultQuestionModels';
-import {
   IQuestionModel,
 } from '../Interfaces/IQuestionModel';
 import {
@@ -19,11 +16,11 @@ import {
 } from '../Enums/StoryGeneratorActionTypes';
 
 export const questionsReducer: Reducer<Array<IQuestionModel>> =
-  (previousState: ReadonlyArray<IQuestionModel> = getDefaultQuestionModels(),
+  (previousState: ReadonlyArray<IQuestionModel> = [],
     action: IStoryGeneratorAction | AnyAction) =>
 {
   if (isStoryGeneratorAction(action)) {
-    if (action.type === StoryGeneratorActionTypes.SetQuestions) {
+    if (action.type === StoryGeneratorActionTypes.Questions) {
       return action.value;
     } else {
       return previousState.map((model) => {
