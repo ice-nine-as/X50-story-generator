@@ -1,13 +1,13 @@
 import {
-  IProseTemplate,
-} from '../Interfaces/IProseTemplate';
+  IStoryTemplate,
+} from '../Interfaces/IStoryTemplate';
 import {
   IQuestionModel,
 } from '../Interfaces/IQuestionModel';
 
 export type TCompletedStoryProps = {
-  models:          ReadonlyArray<IQuestionModel>;
-  proseTemplate:   IProseTemplate;
+  models:        ReadonlyArray<IQuestionModel>;
+  proseTemplate: IStoryTemplate;
 };
 
 export default TCompletedStoryProps;

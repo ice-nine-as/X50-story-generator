@@ -1,6 +1,6 @@
 import {
-  IProseTemplate,
-} from '../Interfaces/IProseTemplate';
+  IStoryTemplate,
+} from '../Interfaces/IStoryTemplate';
 import {
   TSubstitutionMap,
 } from '../TypeAliases/TSubstitutionMap';
@@ -13,7 +13,7 @@ export const strings = {
 
 const escape = require('escape-string-regexp');
 
-export class ProseTemplate implements IProseTemplate {
+export class StoryTemplate implements IStoryTemplate {
   text: string = '';
 
   constructor(text: string) {
@@ -40,4 +40,4 @@ export class ProseTemplate implements IProseTemplate {
   }
 }
 
-export default ProseTemplate;
+export default StoryTemplate;

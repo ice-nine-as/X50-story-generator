@@ -1,8 +1,8 @@
 import {
-  IProseTemplate,
-} from '../Interfaces/IProseTemplate';
+  IStoryTemplate,
+} from '../Interfaces/IStoryTemplate';
 
-export const isProseTemplate = (maybe: any): maybe is IProseTemplate => {
+export const isStoryTemplate = (maybe: any): maybe is IStoryTemplate => {
   return typeof maybe === 'object' &&
     maybe &&
     typeof maybe.text === 'string' &&
@@ -10,4 +10,4 @@ export const isProseTemplate = (maybe: any): maybe is IProseTemplate => {
     typeof maybe.complete === 'function';
 };
 
-export default isProseTemplate;
+export default isStoryTemplate;

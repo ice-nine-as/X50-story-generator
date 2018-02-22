@@ -6,8 +6,8 @@ import {
 } from './InProgressStory';
 import {
   // @ts-ignore
-  IProseTemplate,
-} from '../Interfaces/IProseTemplate';
+  IStoryTemplate,
+} from '../Interfaces/IStoryTemplate';
 import {
   IQuestionModel,
 } from '../Interfaces/IQuestionModel';

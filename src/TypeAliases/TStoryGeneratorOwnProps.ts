@@ -1,6 +1,6 @@
 import {
-  IProseTemplate,
-} from '../Interfaces/IProseTemplate';
+  IStoryTemplate,
+} from '../Interfaces/IStoryTemplate';
 import {
   IQuestionModel,
 } from '../Interfaces/IQuestionModel';
@@ -13,7 +13,7 @@ import {
 
 export type TStoryGeneratorOwnProps = {
   maxAnswerLength: number;
-  proseTemplate:   IProseTemplate;
+  proseTemplate:   IStoryTemplate;
   questions:       ReadonlyArray<IQuestionModel>;
   substitutionMap: TSubstitutionMap;
   state:           StoryStates;

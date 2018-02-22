@@ -9,8 +9,8 @@ export {
   MaxAnswerLengthAction,
 } from './Actions/MaxAnswerLengthAction';
 export {
-  ProseTemplateAction,
-} from './Actions/ProseTemplateAction';
+  StoryTemplateAction,
+} from './Actions/StoryTemplateAction';
 export {
   QuestionsAction,
 } from './Actions/QuestionsAction';
@@ -58,8 +58,8 @@ export {
   IAnswerProps,
 } from './Interfaces/IAnswerProps';
 export {
-  IProseTemplate,
-} from './Interfaces/IProseTemplate';
+  IStoryTemplate,
+} from './Interfaces/IStoryTemplate';
 export {
   IQuestionModel,
 } from './Interfaces/IQuestionModel';
@@ -120,8 +120,8 @@ export {
 
 /* TypeGuards */
 export {
-  isProseTemplate,
-} from './TypeGuards/isProseTemplate';
+  isStoryTemplate,
+} from './TypeGuards/isStoryTemplate';
 export {
   isStoryGeneratorAction,
 } from './TypeGuards/isStoryGeneratorAction';

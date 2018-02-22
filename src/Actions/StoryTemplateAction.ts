@@ -5,9 +5,9 @@ import {
   StoryGeneratorActionTypes,
 } from '../Enums/StoryGeneratorActionTypes';
 
-export const ProseTemplateAction: IStoryGeneratorAction = Object.freeze({
-  type:  StoryGeneratorActionTypes.ProseTemplate,
+export const StoryTemplateAction: IStoryGeneratorAction = Object.freeze({
+  type:  StoryGeneratorActionTypes.StoryTemplate,
   value: null,
 });
 
-export default ProseTemplateAction;
+export default StoryTemplateAction;

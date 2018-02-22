@@ -1,6 +1,6 @@
 import {
-  IProseTemplate,
-} from '../Interfaces/IProseTemplate';
+  IStoryTemplate,
+} from '../Interfaces/IStoryTemplate';
 import {
   isStoryGeneratorAction,
 } from '../TypeGuards/isStoryGeneratorAction';
@@ -15,12 +15,12 @@ import {
   StoryGeneratorActionTypes,
 } from '../Enums/StoryGeneratorActionTypes';
 
-export const proseTemplateReducer: Reducer<IProseTemplate> =
-  (previousState: IProseTemplate | null = null,
+export const proseTemplateReducer: Reducer<IStoryTemplate> =
+  (previousState: IStoryTemplate | null = null,
     action: IStoryGeneratorAction | AnyAction) =>
 {
   if (isStoryGeneratorAction(action) &&
-    action.type === StoryGeneratorActionTypes.ProseTemplate)
+    action.type === StoryGeneratorActionTypes.StoryTemplate)
   {
     return action.value;
   }
